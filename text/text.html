@@ -13,7 +13,8 @@
 
  <div id="mapid" style="height:180px;"></div>
 <script>
-var map = L.map('mapid').setView([51.505, -0.09], 13);
+var map = L.map('mapid').setView([38.4587,-88.0575], 13);
+
 	
 
 	// create the tile layer with correct attribution
@@ -22,21 +23,23 @@ var map = L.map('mapid').setView([51.505, -0.09], 13);
 	var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 12, attribution: osmAttrib});		
 
 	// start the map in South-East England
-//	map.setView(new L.LatLng(51.3, 0.7),9);
+	map.setView(new L.LatLng(38.5296, -88.1145),9);
 	map.addLayer(osm);
-var marker = L.marker([51.5, -0.09]).addTo(map);
-var myIcon = L.icon({
-    iconUrl: 'my-icon.png',
-    iconSize: [38, 95],
-    iconAnchor: [22, 94],
-    popupAnchor: [-3, -76],
+//var marker = L.marker([51.5, -0.09]).addTo(map);
+L.marker([38.5296, -88.1145]).addTo(map) .bindPopup('A pretty CSS3 popup.<br> Easily customizable.') .openPopup();
+
+//var myIcon = L.icon({
+   // iconUrl: 'my-icon.png',
+  //  iconSize: [38, 95],
+   // iconAnchor: [22, 94],
+//    popupAnchor: [-3, -76],
    // shadowUrl: 'my-icon-shadow.png',
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94]
-});
-var marker = L.marker([51.5, -0.09],{icon:myIcon}).addTo(map);
-$.get('https://derek184454.github.io/FantasticSim4/Network.geojson.txt', function(data) {
-  var geojsonLayer = new L.GeoJSON(data);       
+   // shadowSize: [68, 95],
+   // shadowAnchor: [22, 94]
+//});
+//var marker = L.marker([51.5, -0.09],{icon:myIcon}).addTo(map);
+$.get('https://derek184454.github.io/FantasticSim4/text/Network.geojson.txt', function(data) {
+  var geojsonLayer = new L.GeoJSON(JSON.parse(data));       
   geojsonLayer.addTo(map);
 });
 </script>
