@@ -42,5 +42,9 @@ $.get('https://derek184454.github.io/FantasticSim4/text/Network.geojson.txt', fu
   var geojsonLayer = new L.GeoJSON(JSON.parse(data));       
   geojsonLayer.addTo(map);
 });
+$.get('https://derek184454.github.io/FantasticSim4/text/Compiled_Data.csv', function(data) {
+  var geojsonLayer = new L.GeoJSON(JSON.parse(data));
+  geojsonLayer.addTo(map);
+});
 </script>
 </html>
