@@ -2,11 +2,15 @@
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
    crossorigin=""/>
+
  <!-- Make sure you put this AFTER Leaflet's CSS -->
  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-   crossorigin="">
+   crossorigin=""></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
 </script>
+
+
  <div id="mapid" style="height:180px;"></div>
 <script>
 var map = L.map('mapid').setView([51.505, -0.09], 13);
@@ -31,7 +35,9 @@ var myIcon = L.icon({
     shadowAnchor: [22, 94]
 });
 var marker = L.marker([51.5, -0.09],{icon:myIcon}).addTo(map);
-<script src="/js/leaflet-0.7.2/leaflet.ajax.min.js">
-</script>
+$.get('Network.geojson.txt', function(data) {
+  var geojsonLayer = new L.GeoJSON(data);       
+  geojsonLayer.addTo(map);
+});
 </script>
 </html>
