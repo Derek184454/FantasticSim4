@@ -48,12 +48,12 @@ $.get('https://derek184454.github.io/FantasticSim4/text/convertcsv.geojson', fun
         return {color: feature.properties.color};
     }
 }).bindPopup(function (layer) {
-    return layer.feature.properties["Facility Name"]+ '\n\n'+
-            layer.feature.properties["Facility Id"]+ '\n\n' +
-            layer.feature.properties["Address"]+ '\n' +
-            layer.feature.properties["City"]+ '\n\n' +
-          layer.feature.properties["State"]+ '\n\n' +
-          layer.feature.properties["Zip Code"]+ '\n\n' +
+    return layer.feature.properties["Facility Name"]+ '\n\n\n'+
+            layer.feature.properties["Facility Id"]+ '\n\n\n' +
+            layer.feature.properties["Address"]+ '\n\n\n' +
+            layer.feature.properties["City"]+ '\n\n\n' +
+          layer.feature.properties["State"]+ '\n\n\n' +
+          layer.feature.properties["Zip Code"]+ '\n\n\n' +
             layer.feature.properties["CO2 emissions (non-biogenic)"];
 }).addTo(map);
   geojsonLayer.addTo(map);
@@ -70,5 +70,8 @@ $.get('https://derek184454.github.io/FantasticSim4/text/convertcsv.geojson', fun
 
   map.on('click', onMapClick);
 });
+
+
+
 </script>
 </html>
